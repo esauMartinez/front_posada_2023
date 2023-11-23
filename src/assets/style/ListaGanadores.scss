@@ -1,0 +1,39 @@
+.card {
+  width: 100%;
+  margin-top: 10px;
+  height: 300px;
+  padding: 5px;
+  background-color: #fff;
+  background-image: url('../../../public/background-imagen.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  border: 0 !important;
+}
+
+.card-body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 0;
+  color: #000;
+}
+
+.avatar {
+  border-radius: 50%;
+  height: 100px;
+  width: 100px;
+  margin-bottom: 10px;
+}
+
+.card-title,
+.card-text {
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .ganador {
+    width: 100%;
+  }
+}

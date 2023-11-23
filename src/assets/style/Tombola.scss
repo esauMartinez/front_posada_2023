@@ -1,0 +1,37 @@
+.tombola {
+  display: flex;
+}
+
+.logo,
+.ganadores {
+  height: 100vh;
+}
+
+.logo {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logo-100 {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.contador {
+  font-size: 45px;
+}
+
+.ganadores {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow: auto;
+}
