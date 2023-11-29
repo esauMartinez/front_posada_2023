@@ -1,0 +1,40 @@
+.confeti-container {
+  position: fixed;
+  z-index: 3;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  bottom: 0;
+  right: 0;
+  background-image: url('../../../public/confeti.gif');
+  background-color: rgb(255, 0, 0);
+}
+
+.ganador-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.text-ganador {
+  color: #000;
+  font-weight: bold;
+  font-size: 6rem;
+  text-align: center;
+}
+
+@media only screen and (max-width: 600px) {
+  .text-ganador {
+    color: #000;
+    font-weight: bold;
+    font-size: 1.4rem;
+    text-align: center;
+  }
+}
