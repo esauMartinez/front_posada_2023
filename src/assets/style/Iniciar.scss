@@ -11,10 +11,13 @@
   border-radius: 50%;
   height: 150px;
   width: 150px;
-  background-color: #fea611;
-  color: #000;
+  color: #fff;
 }
 
-.btn-inicializador:focus {
-  background-color: red;
+.btn-inicializador-play {
+  background-color: green;
+}
+
+.btn-inicializador-pause {
+  background-color: orange;
 }

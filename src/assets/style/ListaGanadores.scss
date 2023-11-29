@@ -1,6 +1,7 @@
-.card {
+.card-navidad {
   width: 100%;
   margin-top: 10px;
+  margin-bottom: 10px;
   height: 300px;
   padding: 5px;
   background-color: #fff;
@@ -11,7 +12,7 @@
   border: 0 !important;
 }
 
-.card-body {
+.card-navidad .card-body {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,14 +23,34 @@
 
 .avatar {
   border-radius: 50%;
-  height: 100px;
-  width: 100px;
+  height: 150px;
+  width: 150px;
   margin-bottom: 10px;
 }
 
-.card-title,
-.card-text {
+.card-navidad .card-title,
+.card-navidad .card-text {
   text-align: center;
+}
+
+.section-empleados,
+.section-admin {
+  padding-top: 50px;
+}
+.section-ganadores {
+  height: 100vh;
+}
+
+.scroll-down {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  border: 0;
+  border-radius: 50%;
+  height: 60px;
+  width: 60px;
+  color: #fff;
+  background-color: #fea611;
 }
 
 @media only screen and (max-width: 600px) {

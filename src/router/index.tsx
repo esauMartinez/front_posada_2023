@@ -1,31 +1,38 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { Tombola } from '../pages/Tombola';
-import { Iniciar } from '../pages/Iniciar';
 import { Ganadores } from '../pages/Ganadores';
 import { Empleados } from '../pages/Empleados';
+import Login from '../pages/Login';
+import Admin from '../pages/Admin';
 import Navbar from '../common/Navbar';
+// import Navbar from '../common/Navbar';
 
 export const router = createBrowserRouter([
   {
     path: '/',
+    element: <Login />,
+  },
+  {
+    path: '/admin',
     element: <Navbar />,
     children: [
       {
         index: true,
-        element: <Tombola />,
+        element: <Admin />,
       },
       {
-        path: '/iniciar',
-        element: <Iniciar />,
-      },
-      {
-        path: '/ganadores',
-        element: <Ganadores />,
-      },
-      {
-        path: '/empleados',
+        path: '/admin/empleados',
         element: <Empleados />,
       },
     ],
+  },
+  {
+    path: '/rifa',
+    element: <Tombola />,
+  },
+
+  {
+    path: '/ganadores',
+    element: <Ganadores />,
   },
 ]);
