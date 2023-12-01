@@ -1,12 +1,16 @@
 import { Logo } from '../components/Logo';
-import { ListaGanadores } from '../components/ListasGanadores';
-import '../assets/style/Tombola.scss';
-// import Particles from 'react-particles';
-import { /*useCallback,*/ useEffect, useRef } from 'react';
-// import { loadSlim } from 'tsparticles-slim';
-// import { Engine } from 'tsparticles-engine';
+import { Ganadores } from '../components/Ganadores';
+import { useCallback, useEffect } from 'react';
+import { loadSlim } from 'tsparticles-slim';
+import { Engine } from 'tsparticles-engine';
 import { useTombolaStore } from '../store/tombola';
+import Particles from 'react-particles';
 import Confeti from '../components/Confeti';
+import Contador from '../components/Contador';
+import Ruleta from '../components/Ruleta';
+import EndPage from '../components/EndPage';
+import '../assets/style/Tombola.scss';
+import Fin from '../components/Fin';
 
 export const Tombola = () => {
   const getGanadores = useTombolaStore((state) => state.getGanadores);
@@ -14,52 +18,59 @@ export const Tombola = () => {
   const setReiniciarTodo = useTombolaStore((state) => state.setReiniciarTodo);
   const getOpciones = useTombolaStore((state) => state.getOpciones);
   const setEstatus = useTombolaStore((state) => state.setEstatus);
-  const nuevo_ganador = useTombolaStore((state) => state.nuevo_ganador);
   const ganador = useTombolaStore((state) => state.ganador);
   const estatus = useTombolaStore((state) => state.estatus);
-  const bottomRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    getGanadores();
     setGanador();
     setReiniciarTodo();
-    getGanadores();
     getOpciones();
     setEstatus();
-    if (bottomRef.current && nuevo_ganador !== 0) {
-      bottomRef.current.scrollIntoView({ behavior: 'smooth', block: 'end' });
-    }
   }, [
+    // estatus,
     getGanadores,
-    getOpciones,
     setGanador,
     setReiniciarTodo,
+    getOpciones,
     setEstatus,
-    nuevo_ganador,
   ]);
 
-  // const particlesInit = useCallback(async (engine: Engine) => {
-  //   await loadSlim(engine);
-  // }, []);
+  const particlesInit = useCallback(async (engine: Engine) => {
+    await loadSlim(engine);
+  }, []);
 
   return (
     <>
-      {/* <Particles
+      <Particles
         id="tsparticles"
         url="../../public/particles.json"
         init={particlesInit}
-      /> */}
+      />
 
       <div className="tombola">
-        <section className={estatus === 0 ? 'logo-100' : 'logo'}>
+        <section
+          className={
+            estatus === 0 || estatus === 3
+              ? 'logo-100'
+              : 'logo animate__fadeOutLeft'
+          }
+        >
           <Logo />
+
+          {estatus === 1 || estatus === 2 ? <Ruleta /> : ''}
         </section>
+
+        <Contador />
+
+        <Fin estatus={estatus} />
 
         {ganador.nombre !== '' && <Confeti />}
 
-        {estatus === 0 && (
+        {estatus === 1 && (
           <section className="ganadores">
-            <ListaGanadores />
-            <div ref={bottomRef}>.</div>
+            <Ganadores />
+            <EndPage show={false} />
           </section>
         )}
       </div>

@@ -5,6 +5,7 @@ export interface Empleado {
   nombre: string;
   seleccionado: boolean;
   departamento: string;
+  gana: boolean;
   regalo: Regalo;
   idr: string;
 }

@@ -1,11 +1,10 @@
 import { createBrowserRouter } from 'react-router-dom';
 import { Tombola } from '../pages/Tombola';
-import { Ganadores } from '../pages/Ganadores';
+import { Seleccionados } from '../pages/Seleccionados';
 import { Empleados } from '../pages/Empleados';
 import Login from '../pages/Login';
 import Admin from '../pages/Admin';
 import Navbar from '../common/Navbar';
-// import Navbar from '../common/Navbar';
 
 export const router = createBrowserRouter([
   {
@@ -33,6 +32,6 @@ export const router = createBrowserRouter([
 
   {
     path: '/ganadores',
-    element: <Ganadores />,
+    element: <Seleccionados />,
   },
 ]);

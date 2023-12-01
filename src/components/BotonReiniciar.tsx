@@ -1,7 +1,7 @@
 import '../assets/style/Tombola.scss';
 import { useTombolaStore } from '../store/tombola';
 
-const Reiniciar = () => {
+const BotonReiniciar = () => {
   const reiniciarTodo = useTombolaStore((state) => state.reiniciarTodo);
   return (
     <>
@@ -19,4 +19,4 @@ const Reiniciar = () => {
   );
 };
 
-export default Reiniciar;
+export default BotonReiniciar;

@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab&display=swap');
 body {
   background: #bb010b !important;
   // background: linear-gradient(#d02a2a, #d02a2a, #d02a2a, #ce6868) !important;
+}
+
+body,
+* {
+  font-family: 'Roboto Slab', serif;
 }
 
 #particles-js {

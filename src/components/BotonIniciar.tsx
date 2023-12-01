@@ -1,9 +1,17 @@
 import '../assets/style/Iniciar.scss';
 import { useTombolaStore } from '../store/tombola';
 
-export const Iniciar = () => {
+export const BotonIniciar = () => {
   const iniciar = useTombolaStore((state) => state.iniciar);
   const estatus = useTombolaStore((state) => state.estatus);
+
+  const verificarEstatus = (estatus: number) => {
+    if (estatus === 0 || estatus === 2) {
+      return <i className="fa-solid fa-play"></i>;
+    } else if (estatus === 1) {
+      return <i className="fa-solid fa-pause"></i>;
+    }
+  };
 
   return (
     <>
@@ -21,11 +29,7 @@ export const Iniciar = () => {
               }
               onClick={() => iniciar()}
             >
-              {estatus === 1 ? (
-                <i className="fa-solid fa-pause"></i>
-              ) : (
-                <i className="fa-solid fa-play"></i>
-              )}
+              {verificarEstatus(estatus)}
             </button>
           </div>
         </div>

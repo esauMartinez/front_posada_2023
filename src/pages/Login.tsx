@@ -7,8 +7,8 @@ import { useAuthStore } from '../store/auth';
 const Login = () => {
   const auth = useAuthStore((state) => state.auth);
   const logged = useAuthStore((state) => state.logged);
-  const [username, setUsername] = useState<string>('esauMartinez');
-  const [password, setPassword] = useState<string>('mace930111');
+  const [username, setUsername] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
   const navigate = useNavigate();
 
   const onHandleEventUsername = (e: ChangeEvent<HTMLInputElement>) => {
@@ -25,7 +25,6 @@ const Login = () => {
   };
 
   useEffect(() => {
-    console.log(logged);
     if (logged) {
       navigate('/admin');
     }
@@ -47,7 +46,7 @@ const Login = () => {
           </div>
           <div>
             <input
-              type="text"
+              type="password"
               placeholder="Password"
               name="password"
               value={password}

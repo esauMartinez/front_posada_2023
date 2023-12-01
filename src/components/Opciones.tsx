@@ -24,8 +24,10 @@ const Opciones = () => {
       return { text: 'Sin iniciar', color: 'alert-danger' };
     } else if (estatus === 1) {
       return { text: 'Curso', color: 'alert-success' };
-    } else {
+    } else if (estatus === 2) {
       return { text: 'Pausa', color: 'alert-warning' };
+    } else {
+      return { text: 'Terminada', color: 'alert-info' };
     }
   };
 

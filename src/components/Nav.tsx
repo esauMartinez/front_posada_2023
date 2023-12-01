@@ -1,7 +1,18 @@
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import '../assets/style/Nav.scss';
+import { useAuthStore } from '../store/auth';
+import { useEffect } from 'react';
 
 const Nav = () => {
+  const logged = useAuthStore((state) => state.logged);
+  const logout = useAuthStore((state) => state.logout);
+  const navigate = useNavigate();
+  useEffect(() => {
+    if (!logged) {
+      navigate('/');
+    }
+  }, [logged, navigate]);
+
   return (
     <>
       <nav className="navbar fixed-top navbar-expand-lg bg-body-tertiary">
@@ -34,6 +45,15 @@ const Nav = () => {
               </li>
             </ul>
           </div>
+          <form className="d-flex" role="search">
+            <button
+              className="btn btn-outline-danger"
+              type="button"
+              onClick={() => logout()}
+            >
+              Salir
+            </button>
+          </form>
         </div>
       </nav>
     </>

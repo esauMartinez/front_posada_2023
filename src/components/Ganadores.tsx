@@ -1,9 +1,9 @@
-import '../assets/style/ListaGanadores.scss';
 import { useTombolaStore } from '../store/tombola';
 import { useEffect } from 'react';
 import Card from './Card';
+import '../assets/style/Ganadores.scss';
 
-export const ListaGanadores = () => {
+export const Ganadores = () => {
   const getGanadores = useTombolaStore((state) => state.getGanadores);
   const ganadores = useTombolaStore((state) => state.ganadores);
 

@@ -1,5 +1,6 @@
 import { Socket, io } from 'socket.io-client';
 import { Empleado } from '../models/empleado';
+import { dev, url, url_prod } from '../helpers/axiosInstance';
 
 interface ServerToClients {
   ganador: (empleado: Empleado) => void;
@@ -9,6 +10,6 @@ interface ServerToClients {
   estatus: (estatus: number) => void;
 }
 
-const instance: Socket<ServerToClients> = io('http://192.168.4.17:1117');
+const instance: Socket<ServerToClients> = io(dev ? url : url_prod);
 
 export const socket = instance.connect();
